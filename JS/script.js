@@ -1,5 +1,13 @@
 const IMAGES = document.querySelectorAll("img");
 
+//Shapes picture width based on browser size
+const SIZES = {
+    showcase: "100vw",
+    reason: "(max-width: 799 px)100 vw, 372 px",
+    feature: "(max-width: 799 px)100 vw, 558 px",
+    story: "(max-width: 799 px)100 vw, 570 px"
+};
+
 //Loops through img srcs and provides correct urls to the images
 function makeSrcset(imgSrc){
     let markup = [];
@@ -27,5 +35,7 @@ for (let i = 0; i <IMAGES.length; i++){
     
     //Helps out with what our data type is
     let type = IMAGES[i].getAttribute("data-type");
-    console.log(type);
+    let sizes = SIZES[type];
+    
+    console.log(sizes);
 }
